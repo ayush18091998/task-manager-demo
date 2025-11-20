@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Task</title>
+</head>
+<body>
+<h1>Add New Task</h1>
+<form id="taskForm">
+    {% csrf_token %}
+    <label>
+        <input type="text" name="title" placeholder="Title" required>
+    </label><br>
+    <label>
+        <textarea name="description" placeholder="Description"></textarea>
+    </label><br>
+    <label>
+        <input type="date" name="due_date">
+    </label><br>
+    <label>
+        <select name="status">
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+        </select>
+    </label><br>
+    <button type="submit">Add Task</button>
+</form>
+
+<script>
+
+        function getCSRF() {
+            return document.querySelector("[name=csrfmiddlewaretoken]").value;
+        }
+
+        document.getElementById("taskForm").onsubmit = async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            const response = await fetch("/api/tasks/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": getCSRF(),
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                alert("Task Added!");
+                window.location.href = "/";
+            }
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+
+# Logs
+*.log
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Pytest cache
+.pytest_cache/
+
+# Django collected static
+/staticfiles/

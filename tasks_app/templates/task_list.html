@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Tasks List</title>
+</head>
+<body>
+<h1>Tasks</h1>
+<ul id="tasks"></ul>
+<a href="/add">Add Task</a>
+
+<script>
+    fetch("/api/tasks/")
+        .then(res => res.json())
+        .then(data => {
+            const ul = document.getElementById("tasks");
+            data.forEach(task => {
+                const li = document.createElement("li");
+                li.textContent = `${task.title} - ${task.status}`;
+                ul.appendChild(li);
+            });
+        });
+</script>
+</body>
+</html>
