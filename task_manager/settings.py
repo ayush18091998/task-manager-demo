@@ -147,7 +147,7 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
-        'tasks': {              # use your app name here
+        'tasks': {             
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
         },

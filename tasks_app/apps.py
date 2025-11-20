@@ -10,6 +10,6 @@ class TasksConfig(AppConfig):
             try:
                 from .db import init_db
                 init_db()
-                print("✔ tasks table initialized")
+                print(" tasks table initialized")
             except Exception as e:
-                print("❌ DB INIT ERROR:", e)
+                print(" DB INIT ERROR:", e)
