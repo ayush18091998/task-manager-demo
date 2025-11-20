@@ -20,3 +20,5 @@ venv/
 
 # Django collected static
 /staticfiles/
+
+task_manager.iml

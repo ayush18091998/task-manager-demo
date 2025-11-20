@@ -16,10 +16,15 @@ The project includes both REST API endpoints and basic HTML templates for fronte
 
 ## ⚙️ Setup Instructions
 
-### 1️⃣ Install dependencies
+### 1️⃣ Create & activate a virtual environment
+- python -m venv venv
+- venv\Scripts\activate(windows)
+- source venv/bin/activate(MAC/Linux)
+
+### 2️⃣ Install dependencies
  - pip install -r requirements.txt
 
-### 2️⃣ Configure MySQL connection
+### 3️⃣ Configure MySQL connection
 Update `tasks/db.py` if needed:
 
 ```python
@@ -30,7 +35,7 @@ conn = pymysql.connect(
     database="todo_db",
 )
 ```
-### 3️⃣ Run Django server
+### 4️⃣ Run Django server
 
  - python manage.py runserver
 
